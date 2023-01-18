@@ -1,17 +1,22 @@
-var formulario = document.querySelector("#form")
+//Se cambió el querySelector por la clase correspondiente (no había un id #form en formulario.html)
+var formulario = document.querySelector(".formulario");
 
 formulario.onsubmit = function(e) {
 
-  e.prevent();
+  e.preventDefault();
   
   var n = formulario.elements[0]
   var e = formulario.elements[1]
   var na = formulario.elements[2]
 
-  var nombre = n.value
+  console.log(n); //Campo nombre
+  console.log(e); //Campo edad
+  console.log(na); //Campo nacionalidad
+
+  var nombre = n.value;
   var edad = e.value
 
-  var i = na.selectedIndex
+  var i = na.selectedIndex;
   var nacionalidad = na.options[i].value
   console.log(nombre, edad)
   console.log(nacionalidad)
@@ -52,7 +57,7 @@ function agregarInvitado(nombre, edad, nacionalidad) {
     nacionalidad = "Peruana"
   }
 
-var lista = document.getElementById("lista-de-invitados")
+var lista = document.getElementById("#lista-de-invitados")
 
 var elementoLista = document.createElement("div")
 elementoLista.classList.added("elemento-lista")
@@ -90,7 +95,8 @@ var corteLinea = document.createElement("br")
 elementoLista.appendChild(corteLinea)
 elementoLista.appendChild(botonBorrar);
 
- botonBorrar.onclick = function() {
+
+botonBorrar.onclick = function() {
 // this.parentNode.style.display = 'none';
 botonBorrar.parentNode.remove()
   }
